@@ -162,7 +162,7 @@ def relay_with_authorization(auth: dict) -> str:
     ).build_transaction(
         {
             "from": relayer_account.address,
-            "nonce": w3.eth.get_transaction_count(relayer_account.address),
+            "nonce": w3.eth.get_transaction_count(relayer_account.address, "pending"),
             "chainId": CHAIN_ID,
             "gas": 200_000,
             "maxFeePerGas": w3.to_wei("2", "gwei"),
